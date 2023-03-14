@@ -12,7 +12,6 @@ function getcomputerchoice(){
             break;
     }
 }
-console.log(getcomputerchoice());
 let playerchoice = prompt("what is your choice. between rock, paper and scissors?");
 playerchoice = playerchoice.toLowerCase();
 while (playerchoice != "rock" && playerchoice != "paper" && playerchoice != "scissors"){
@@ -22,8 +21,14 @@ while (playerchoice != "rock" && playerchoice != "paper" && playerchoice != "sci
 console.log(playerchoice);
 
 function playround(playerchoice, getcomputerchoice,){
+    console.log(getcomputerchoice);
     return playerchoice == "rock" && getcomputerchoice == "paper" ? "you lose! paper beats rock"  
-    : playerchoice == "rock" && getcomputerchoice == "scissors" ? "you win! rock beats paper" : "tie";   
+    : playerchoice == "rock" && getcomputerchoice == "scissors" ? "you win! rock beats scissors" 
+    : playerchoice == "paper" && getcomputerchoice == "rock" ? "you win! paper beats rock"
+    : playerchoice == "paper" && getcomputerchoice == "scissors" ? "you lose! scissors beats paper"
+    : playerchoice == "scissors" && getcomputerchoice == "rock" ? "you lose! rock beats scissors"
+    : playerchoice =="scissors" && getcomputerchoice == "paper" ? "you win! scissors beats paper"
+    : playerchoice == getcomputerchoice ? "tie" : "error";   
 }
 console.log(playround(playerchoice, getcomputerchoice()));
 
