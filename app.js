@@ -12,3 +12,13 @@ function getcomputerchoice(){
             break;
     }
 }
+let playerchoice = prompt("what is your choice. between rock, paper and scissors?");
+playerchoice = playerchoice.toLowerCase();
+while (playerchoice != "rock" && playerchoice != "paper" && playerchoice != "scissors"){
+    playerchoice = prompt("choose between rock, paper or scissors. ONLY");
+    playerchoice = playerchoice.toLowerCase();
+}
+console.log(playerchoice);
+
+
+
