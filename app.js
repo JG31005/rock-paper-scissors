@@ -12,24 +12,49 @@ function getcomputerchoice(){
             break;
     }
 }
+function getplayerchoice(){
 let playerchoice = prompt("what is your choice. between rock, paper and scissors?");
-playerchoice = playerchoice.toLowerCase();
 while (playerchoice != "rock" && playerchoice != "paper" && playerchoice != "scissors"){
     playerchoice = prompt("choose between rock, paper or scissors. ONLY");
     playerchoice = playerchoice.toLowerCase();
+    return playerchoice;  
 }
-console.log(playerchoice);
-
-function playround(playerchoice, getcomputerchoice,){
+playerchoice = playerchoice.toLowerCase();
+return playerchoice;
+}
+let result;
+function playround(getplayerchoice, getcomputerchoice){
     console.log(getcomputerchoice);
-    return playerchoice == "rock" && getcomputerchoice == "paper" ? "you lose! paper beats rock"  
-    : playerchoice == "rock" && getcomputerchoice == "scissors" ? "you win! rock beats scissors" 
-    : playerchoice == "paper" && getcomputerchoice == "rock" ? "you win! paper beats rock"
-    : playerchoice == "paper" && getcomputerchoice == "scissors" ? "you lose! scissors beats paper"
-    : playerchoice == "scissors" && getcomputerchoice == "rock" ? "you lose! rock beats scissors"
-    : playerchoice =="scissors" && getcomputerchoice == "paper" ? "you win! scissors beats paper"
-    : playerchoice == getcomputerchoice ? "tie" : "error";   
+    console.log(getplayerchoice);
+    return getplayerchoice == "rock" && getcomputerchoice == "paper" ? "you lose ! paper beats rock"  
+    : getplayerchoice == "rock" && getcomputerchoice == "scissors" ? "you win ! rock beats scissors" 
+    : getplayerchoice == "paper" && getcomputerchoice == "rock" ? "you win ! paper beats rock"
+    : getplayerchoice == "paper" && getcomputerchoice == "scissors" ? "you lose ! scissors beats paper"
+    : getplayerchoice == "scissors" && getcomputerchoice == "rock" ? "you lose ! rock beats scissors"
+    : getplayerchoice =="scissors" && getcomputerchoice == "paper" ? "you win ! scissors beats paper"
+    : getplayerchoice == getcomputerchoice ? "tie" : "error";   
 }
-console.log(playround(playerchoice, getcomputerchoice()));
+
+function game(){
+    let playerscore = 0;
+    let computerscore = 0;
+    for(let i = 0; i<5 ; i++){
+        result =(playround(getplayerchoice(), getcomputerchoice())); 
+        if (result.includes("win")){
+            playerscore ++;
+            console.log("you have "+playerscore+" points and the computer has "+computerscore);
+        }else if (result.includes("lose")){
+            computerscore ++;
+            console.log("you have "+playerscore+" points and the computer has "+computerscore);
+        }else console.log("tie");
+    }
+    if (playerscore > computerscore){
+        return "you win the game!";
+    }else if(computerscore > playerscore){
+        return "you lose the game";
+    } else return "tie!";
+
+}
+console.log(game());
 
 
