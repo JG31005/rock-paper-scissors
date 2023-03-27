@@ -1,3 +1,25 @@
+const Rock = document.querySelector(".rock");
+
+const Paper = document.querySelector(".paper");
+
+const Scissors = document.querySelector(".scissors");
+
+Rock.addEventListener("click",() =>{
+    let playerchoice = "rock";
+    console.log(playround(playerchoice,getcomputerchoice()))
+})
+
+Paper.addEventListener("click",() =>{
+    let playerchoice = "paper";
+    console.log(playround(playerchoice,getcomputerchoice()))
+})
+
+Scissors.addEventListener("click",() =>{
+    let playerchoice = "scissors";
+    console.log(playround(playerchoice,getcomputerchoice()))
+})
+
+
 function getcomputerchoice(){
     choice = Math.floor(Math.random() * 3) ;
     switch (choice) {
@@ -13,7 +35,7 @@ function getcomputerchoice(){
     }
 }
 function getplayerchoice(){
-let playerchoice = prompt("what is your choice. between rock, paper and scissors?");
+/*let playerchoice = prompt("what is your choice. between rock, paper and scissors?");*/
 while (playerchoice != "rock" && playerchoice != "paper" && playerchoice != "scissors"){
     playerchoice = prompt("choose between rock, paper or scissors. ONLY");
     playerchoice = playerchoice.toLowerCase();
@@ -34,7 +56,7 @@ function playround(getplayerchoice, getcomputerchoice){
     : getplayerchoice =="scissors" && getcomputerchoice == "paper" ? "you win ! scissors beats paper"
     : getplayerchoice == getcomputerchoice ? "tie" : "error";   
 }
-
+/*
 function game(){
     let playerscore = 0;
     let computerscore = 0;
@@ -56,5 +78,4 @@ function game(){
 
 }
 console.log(game());
-
-
+*/
