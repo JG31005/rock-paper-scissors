@@ -8,39 +8,26 @@ const playerscore = document.querySelector(".player-score");
 
 const computerscore = document.querySelector(".comp-score");
 
+const winner = document.querySelector(".final-result");
 let result;
-
+let mescore= 0;
+let pcscore = 0;
 Rock.addEventListener("click",() =>{
     let playerchoice = "rock";
-    result = (playround(playerchoice,getcomputerchoice()));
-
-    if (result.includes("win")){
-        playerscore.innerHTML ++;
-    }else if (result.includes("lose")){
-        computerscore.innerHTML ++;
-    }else console.log("tie");
+    winner.innerHTML = "";
+    game(playerchoice);
 })
 
 Paper.addEventListener("click",() =>{
     let playerchoice = "paper";
-    result = (playround(playerchoice,getcomputerchoice()));
-
-    if (result.includes("win")){
-        playerscore.innerHTML ++;
-    }else if (result.includes("lose")){
-        computerscore.innerHTML ++;
-    }else console.log("tie");
+    winner.innerHTML = "";
+    game(playerchoice);
 })
 
 Scissors.addEventListener("click",() =>{
     let playerchoice = "scissors";
-    result = (playround(playerchoice,getcomputerchoice()));
-
-    if (result.includes("win")){
-        playerscore.innerHTML ++;
-    }else if (result.includes("lose")){
-        computerscore.innerHTML ++;
-    }else console.log("tie");
+    winner.innerHTML = "";
+    game(playerchoice);
 })
 
 
@@ -79,26 +66,30 @@ function playround(getplayerchoice, getcomputerchoice){
     : getplayerchoice =="scissors" && getcomputerchoice == "paper" ? "you win ! scissors beats paper"
     : getplayerchoice == getcomputerchoice ? "tie" : "error";   
 }
-/*
-function game(){
-    let playerscore = 0;
-    let computerscore = 0;
-    for(let i = 0; i<5 ; i++){
-        result =(playround(getplayerchoice(), getcomputerchoice())); 
-        if (result.includes("win")){
-            playerscore ++;
-            console.log("you have "+playerscore+" points and the computer has "+computerscore);
-        }else if (result.includes("lose")){
-            computerscore ++;
-            console.log("you have "+playerscore+" points and the computer has "+computerscore);
-        }else console.log("tie");
-    }
-    if (playerscore > computerscore){
-        return "you win the game!";
-    }else if(computerscore > playerscore){
-        return "you lose the game";
-    } else return "tie!";
 
+function game(playerchoice){
+    letplayerchoice = playerchoice;
+    result = (playround(playerchoice,getcomputerchoice()));
+
+    if (result.includes("win")){
+        playerscore.innerHTML ++;
+        mescore ++;
+    }else if (result.includes("lose")){
+        computerscore.innerHTML ++;
+        pcscore ++;
+    }
+
+    if(mescore == 5){
+        winner.innerHTML = "You win this match";
+        computerscore.innerHTML = 0;
+        playerscore.innerHTML = 0;
+        mescore = 0;
+        pcscore = 0;
+    }else if(pcscore == 5){
+        winner.innerHTML = "you lose this match";
+        computerscore.innerHTML = 0;
+        playerscore.innerHTML = 0;
+        mescore = 0;
+        pcscore = 0;
+    }
 }
-console.log(game());
-*/

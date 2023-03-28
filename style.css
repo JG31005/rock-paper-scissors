@@ -31,3 +31,10 @@ body{
     padding: 70px;
     padding-left: 140px;
 }
+.final-result{
+    margin-top: 0px;
+    font-size: 300%;
+}
+.fa-regular:hover{
+    color: lightcoral;
+}
