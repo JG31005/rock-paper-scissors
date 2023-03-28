@@ -4,19 +4,43 @@ const Paper = document.querySelector(".paper");
 
 const Scissors = document.querySelector(".scissors");
 
+const playerscore = document.querySelector(".player-score");
+
+const computerscore = document.querySelector(".comp-score");
+
+let result;
+
 Rock.addEventListener("click",() =>{
     let playerchoice = "rock";
-    console.log(playround(playerchoice,getcomputerchoice()))
+    result = (playround(playerchoice,getcomputerchoice()));
+
+    if (result.includes("win")){
+        playerscore.innerHTML ++;
+    }else if (result.includes("lose")){
+        computerscore.innerHTML ++;
+    }else console.log("tie");
 })
 
 Paper.addEventListener("click",() =>{
     let playerchoice = "paper";
-    console.log(playround(playerchoice,getcomputerchoice()))
+    result = (playround(playerchoice,getcomputerchoice()));
+
+    if (result.includes("win")){
+        playerscore.innerHTML ++;
+    }else if (result.includes("lose")){
+        computerscore.innerHTML ++;
+    }else console.log("tie");
 })
 
 Scissors.addEventListener("click",() =>{
     let playerchoice = "scissors";
-    console.log(playround(playerchoice,getcomputerchoice()))
+    result = (playround(playerchoice,getcomputerchoice()));
+
+    if (result.includes("win")){
+        playerscore.innerHTML ++;
+    }else if (result.includes("lose")){
+        computerscore.innerHTML ++;
+    }else console.log("tie");
 })
 
 
@@ -44,7 +68,6 @@ while (playerchoice != "rock" && playerchoice != "paper" && playerchoice != "sci
 playerchoice = playerchoice.toLowerCase();
 return playerchoice;
 }
-let result;
 function playround(getplayerchoice, getcomputerchoice){
     console.log(getcomputerchoice);
     console.log(getplayerchoice);

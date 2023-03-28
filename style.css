@@ -2,7 +2,13 @@
     font-family: ninja;
     src: url(AssassinNinja-7BYyR.ttf);
 }
-
+h1{
+    font-size: 500%;
+    margin-bottom: 20px;
+}
+h2{
+    font-size: 300%;
+}
 body{
     font-family: ninja ;
     display: flex;
@@ -15,6 +21,13 @@ body{
 }
 .buttons-container{
     display: flex;
-    gap: 100px;
+    gap: 150px;
     font-size: 600%;
+}
+.scoreboard-container{
+    display: flex;
+    font-size: 200%;
+    gap: 20px;
+    padding: 70px;
+    padding-left: 140px;
 }
